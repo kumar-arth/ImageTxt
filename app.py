@@ -6,9 +6,9 @@ from PIL import Image
 import google.generativeai as genai
 genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
 model= genai.GenerativeModel('gemini-pro-vision')
-def get_gemini_response(input,image_data,user_prompt):
-    response=model.generate_content([input,image_data[0],user_prompt])
-    return response.text
+def get_gemini_response(input,image,user_prompt):
+    response=model.generate_content([input,image[0],user_prompt])
+    return response
 def input_image_details(uploaded_file):
     if uploaded_file is not None:
         bytes_data=uploaded_file.getvalue()
